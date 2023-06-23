@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:ns="clr-namespace:ListViewVisibleBug"
+			 x:Class="ListViewVisibleBug.MainPage"
+			 x:DataType="ns:MainPageViewModel">
+
+    <ScrollView>
+		<VerticalStackLayout>
+			<Button Text="Swap List" Clicked="Button_Clicked"/>
+			<ListView IsVisible="{Binding List1Visible}"
+					  ItemsSource="{Binding List1Data}"
+						  RowHeight="40"
+						  SeparatorVisibility="None"
+						  VerticalOptions="Fill">
+				<ListView.ItemTemplate>
+					<DataTemplate x:DataType="ns:ListData">
+						<ViewCell>
+							<Label Text="{Binding Text}" />
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+			<ListView IsVisible="{Binding List2Visible}"
+					  ItemsSource="{Binding List2Data}"
+						  RowHeight="40"
+						  SeparatorVisibility="None"
+						  VerticalOptions="Fill">
+				<ListView.ItemTemplate>
+					<DataTemplate x:DataType="ns:ListData">
+						<ViewCell>
+							<Label Text="{Binding Text}" />
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</VerticalStackLayout>
+	</ScrollView>
+
+</ContentPage>
